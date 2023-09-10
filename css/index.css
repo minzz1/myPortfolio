@@ -1,9 +1,42 @@
 /* section 공통 */
 .section_wrapper {
   height: calc(100vh - 80px);
+  border: 1px solid red;
 }
 
 /* section1 */
-#section1 {
+#Introduction {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   border: 1px solid rebeccapurple;
+}
+#Introduction .int_title {
+  width: 60%;
+}
+#Introduction img {
+  border-radius: 50%;
+}
+/* section2*/
+#porject {
+  text-align: center;
+}
+#porject .por_title {
+  padding: 2%;
+  margin-bottom: 2%;
+  border: 1px solid gold;
+}
+#porject .por_itemBox {
+  display: flex;
+}
+/* section3 */
+#contact .con_tite {
+  text-align: center;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+#contact .con_itemBox {
+  width: 60%;
+  height: 50%;
+  border: 1px solid brown;
 }
