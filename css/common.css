@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
   font-weight: 200;
   font-style: normal;
 }
@@ -33,18 +32,21 @@ header {
   align-items: center;
   font-size: 3vh;
 }
+header.active {
+  transform: translateY(-100%);
+}
 #gnb {
+  margin-left: 5%;
   padding: 10px;
-  width: 100%;
   position: fixed;
-  top: 0;
+  top: 30%;
   transition: 0.5s;
-  border-bottom: 1px solid saddlebrown;
+  /* border-bottom: 1px solid saddlebrown; */
 }
 #gnb ul {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
+  gap: 20px;
 }
 #gnb ul li {
   list-style: none;

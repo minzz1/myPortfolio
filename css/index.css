@@ -1,38 +1,68 @@
 /* section 공통 */
 .section_wrapper {
   height: calc(100vh - 80px);
-  border: 1px solid red;
 }
-
 /* section1 */
-#Introduction {
+#main {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+#main .porfile {
+  width: 40%;
+}
+#main .porfile img {
+  width: 100%;
+  height: auto;
+  border-radius: 40%;
+}
+
+/* section2 */
+#Introduction {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
   border: 1px solid rebeccapurple;
 }
-#Introduction .int_title {
+.int_itemBox {
   width: 60%;
 }
-#Introduction .int_title p span {
-  text-indent: 10%;
+.int_itemBox .int_text {
+  font-style: oblique;
+  font-size: 4em;
+  padding-bottom: 5%;
 }
-#Introduction img {
-  border-radius: 50%;
+.int_itemBox .int_item1 {
+  padding-bottom: 20%;
 }
-/* section2*/
+
+.int_itemBox .int_item2 div {
+  display: flex;
+}
+/* section3*/
 #porject {
   text-align: center;
 }
-#porject .por_title {
+.por_title {
   padding: 2%;
   margin-bottom: 2%;
   border: 1px solid gold;
 }
-#porject .por_itemBox {
+.por_itemBox {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  border: 1px solid sandybrown;
 }
-/* section3 */
+.por_item {
+  width: 33%;
+}
+.por_itemBox div {
+  border: 1px solid blue;
+}
+/* section4 */
 #contact .con_tite {
   text-align: center;
   padding: 2%;
