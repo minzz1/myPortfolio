@@ -24,7 +24,7 @@ a {
 }
 
 /* header */
-header {
+/* header {
   max-width: 1920px;
   display: flex;
   justify-content: space-between;
@@ -34,13 +34,13 @@ header {
 }
 header.active {
   transform: translateY(-100%);
-}
+} */
 #gnb {
   margin-left: 5%;
   padding: 10px;
   position: fixed;
-  top: 30%;
-  transition: 0.5s;
+  top: 10%;
+  /* transition: 0.5s; */
   /* border-bottom: 1px solid saddlebrown; */
 }
 #gnb ul {

@@ -1,6 +1,7 @@
 /* section 공통 */
 .section_wrapper {
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
+  height: 100vh;
 }
 /* section1 */
 #main {
@@ -58,6 +59,10 @@
 }
 .por_item {
   width: 33%;
+}
+.por_item img {
+  width: 100%;
+  height: auto;
 }
 .por_itemBox div {
   border: 1px solid blue;

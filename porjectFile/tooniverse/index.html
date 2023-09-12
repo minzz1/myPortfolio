@@ -4,252 +4,273 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20230424</title>
-
-    <style>
-        /*초기화*/
-        *{margin: 0; box-sizing: border-box;}
-        li {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: bold;
-            font-size: 22px;
-            list-style: none;
-            float: left;
-        }
-        a { text-decoration: none;
-        }
-        img {width: 100%;
-        }
-        body {width: 100%;
-        }
-
-
-        /*header 부분 스타일*/
-        header { width: 100%; height: 180px;
-            margin: 0 auto;
-            margin-bottom: 10px;
-            position: relative; 
-        }
-        header #title {
-            position: absolute;
-            left: 20%; top: 35px;
-        }
-        header #main_gnb {
-            position: absolute;
-            right: 100px; top: 30px;
-        }
-        header #main_gnb ul li {
-            padding: 2px 10px;
-        }
-        header #main_gnb ul li:hover {
-            background-color: #8e8b8a;
-        }
-        header #main_lnb {
-            position: absolute;
-            bottom: 0; right: 200px;
-        }
-        header #main_lnb ul li{
-            padding: 10px 20px
-        }
-        header #main_lnb ul li:hover {
-            color: #F59513;
-        }
-
-
-        /*content 스타일*/
-        #content { 
-            width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        #content #main_section { 
-            width: 100%;
-            float: left;
-        }
-
-        #content #main_aside {
-            right: 0;
-            float: right;
-            position: fixed;
-        }
-
-
-        /*slider 스타일 */
-        .slider{
-            width: 414px;
-            height: 480px;
-            position: relative;
-            margin: 0 auto;
-        }
-        .slider input[type=radio]{
-            display: none;
-        }
-        ul.imgs{
-            padding: 0;
-            margin: 0;
-        }
-        ul.imgs li{
-            position: absolute; /* 슬라이드가 겹쳐서 모여야 하므로 absolute 속성으로 배치 */
-            opacity: 0; /* 체크한 라디오박스 순서의 슬라이드만 표시되도록 기본 투명도 설정 */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .bullets{
-            position: absolute;
-            left: 50%; /* 가로로 가운데 정렬 */
-            transform: translateX(-50%);
-            bottom: 20px; /* 슬라이드 밑에서 20px 간격 띄움 */
-            z-index: 2; /* 슬라이드 위에 보이도록 레이어 순위를 높임 */
-        }
-        .bullets label{
-            display: inline-block; /* 한 줄로 불릿 나열*/
-            border-radius: 50%; /* 원형 불릿으로 처리 */
-            background-color: rgba(0,0,0,0.55);
-            width: 20px; /* 불릿 너비 */
-            height: 20px; /* 불릿 높이 */
-            cursor: pointer;
-        }
-        .slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
-            background-color: #fff;
-        }
-        .slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
-            background-color: #fff;
-        }
-        .slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
-            background-color: #fff;
-        }
-        .slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
-            background-color: #fff;
-        }
-        .slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
-            opacity: 1;
-            transition: 1s;
-            z-index: 1;
-        }
-        .slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
-            opacity: 1;
-            transition: 1s;
-            z-index: 1;
-        }
-        .slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
-            opacity: 1;
-            transition: 1s;
-            z-index: 1;
-        }
-        .slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
-            opacity: 1;
-            transition: 1s;
-            z-index: 1;
-        }
-        ul.imgs li{
-            position: absolute;
-            opacity: 0;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            transition-delay: 0.9s; /* 트랜지션 지연 시간 지정 */
-            transition: all 0.5s cubic-bezier(0.4, 1.3, 0.65, 1); /* Slide css animation */
-        }
-        #icon{ width: 100%;
-            margin: 0; 
-        }
-
-
-        /*footer 스타일*/
-        footer{
-            width: 100%; height: 120px;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 25px;
-            background-color: #3A3734;
-            color: #8e8b8a 
-        }
-        b {
-            color: #F59513;
-        }
-         </style>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <title>20230523 반응형웹과제</title>
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+            auto: true,
+            autoControls: true,
+            stopAutoOnClick: true,
+            pager: true,
+            slideWidth: 600
+            });
+        });
+        $(document).ready(function(){
+            $('.bxsliders').bxSlider({
+            auto: true,
+            autoControls: true,
+            stopAutoOnClick: true,
+            pager: true,
+            slideWidth: 1200
+            });
+        });
+        $(function(){
+            var toggle = $('#icon');
+            var menu = $('#lnbNav');
+            $('#icon').on('click',function (e){
+                e.preventDefault(); 
+                menu.slideToggle();
+            });
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <div id="title">
-            <img src="./images/logo_header.png">
-        </div>
-        <div id="menu">
-            <nav id="main_gnb">
-                <ul>
-                    <a href="#"><li><img src="./images/maun.png"></li></a>
-                    <a href="#"><li><img src="./images/seach.png"></li></a>
-                    <a href="#"><li><img src="./images/lang.png"></li></a>
-                </ul>
+    <div id="container">
+        <header>
+            <div class="logo">
+                <img src="./images/PC_투니버스_로고.png">
+            </div>
+            <nav id="icon">
+                <input type="checkbox" id="menuIcon"/>
+                <label for="menuIcon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
             </nav>
-        </div>
-        <nav id="main_lnb">
-            <ul>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000721" target="_blank"><li>전시</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000732&servletPath=%2Findex.do" target="_blank"><li>교육/행사</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000760&servletPath=%2Findex.do" target="_blank"><li>소장품/아카이브</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000781&servletPath=%2Findex.do" target="_blank"><li>미술상</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000785&servletPath=%2Findex.do" target="_blank"><li>디지털미술관</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000791&servletPath=%2Findex.do" target="_blank"><li>소식/참여</li></a>
-                <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000739&servletPath=%2Findex.do" target="_blank"><li>미술관소개/안내</li></a>
-            </ul>
-        </nav>
-    </header>
-    <div id="content">
-        <section id="main_section">
-            <article>
-                <div id="main_img" >
-                    <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000721&menu_link=/front/ehi/ehiViewFront.do?ehi_id=EHI_00000210" target="_blank"> 
-                        <img src="./images/main1.jpg">
-                    </a>
-                </div>
-            </article>
-            <article>
-                <div id="main_img">
-                    <a href="https://daeguartmuseum.or.kr/index.do?menu_id=00000721&menu_link=/front/ehi/ehiViewFront.do?ehi_id=EHI_00000200" target="_blank">
-                        <img src="./images/main2.jpg">
-                    </a>
-                </div>
-            </article>
+            <div id="toggle">
+                <nav id="gnbNav">
+                    <span><a href="#" id="navA">로그인</a></span>
+                    <span><a href="#" id="navA">회원가입</a></span>
+                </nav>
+                <nav id="lnbNav">
+                    <span><a href="#" id="navA">About Tooniver</a></span>
+                    <span><a href="#" id="navA">편성표</a></span>
+                    <span><a href="#" id="navA">프로그램</a></span>
+                </nav>
+            </div>
+        </header>
+
+
+        <section id="mainVideo">
+            <video class="bg_video" autoplay muted loop>
+                <source src="./images/tooniverse_visual-pc1.mp4" />
+            </video>
         </section>
-        <aside id="main_aside">
-            <article>
-                <div class="slider">
-                    <input type="radio" name="slide" id="slide1" checked>
-                    <input type="radio" name="slide" id="slide2">
-                    <input type="radio" name="slide" id="slide3">
-                    <input type="radio" name="slide" id="slide4">
-                    <ul id="imgholder" class="imgs">
-                        <li><img src="./images/imageView1 .png"></li>
-                        <li><img src="./images/imageView2 .png"></li>
-                        <li><img src="./images/imageView3 .png"></li>
-                        <li><img src="./images/imageView4 .png"></li>
-                    </ul>
-                    <div class="bullets">
-                        <label for="slide1">&nbsp;</label>
-                        <label for="slide2">&nbsp;</label>
-                        <label for="slide3">&nbsp;</label>
-                        <label for="slide4">&nbsp;</label>
+        <section id="contents">
+            <article id="mainSlider_mo">
+                <div class="bxslider">
+                    <div><img src="./images/mobile/1내꿈은포켓몬마스터모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/2드림즈모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/3미라큘라스 레이디버그_모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/4모바일배너_신비아파트5.jpg" /></div>
+                    <div><img src="./images/mobile/5스폰지밥모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/6시크릿쥬쥬모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/7원픽은흔한남매모바일배너.jpg" /></div>
+                    <div><img src="./images/mobile/8뿡뿡빵빵부부맨모바일배너.jpg" /></div>
+                  </div>
+            </article>
+            <article id="mainSlider_pc">
+                <ul class="bxsliders">
+                    <li><img src="./images/PC/1내꿈은포켓몬마스터빅배너날짜.jpg" /></li>
+                    <li><img src="./images/PC/2드림즈빅배너날짜_1684198612393.jpg" /></li>
+                    <li><img src="./images/PC/3미라큘러스 레이디버그_빅배너.jpg" /></li>
+                    <li><img src="./images/PC/4빅배너_신비아파트5.jpg" /></li>
+                    <li><img src="./images/PC/5스폰지밥빅배너.jpg" /></li>
+                    <li><img src="./images/PC/6시크릿쥬쥬빅배너매주.jpg" /></li>
+                    <li><img src="./images/PC/7원픽은흔한남매빅배너날짜.jpg" /></li>
+                    <li><img src="./images/PC/8뿡뿡빵빵부부맨빅배너매주오전8시.jpg" /></li>
+                  </ul>
+            </article>
+            <article id="now">
+
+                <div class="panelHeader">
+                    <div class="panelSub">
+                        <span>오늘 뭐보지?</span>
+                    </div>
+                    <div class="panelMain">
+                        <span>투니버스 NOW </span>
+                    </div>
+                </div>
+
+                <div class="panelBody">
+                    <div class="panelinner">
+                        <div class="innerArea">
+                            <img src="./images/PC_투니버스_로고.png">
+                        </div>
+                        <div class="innerUnit">
+                            <div class="unitTime">
+                                <span>09:00~<br/>
+                                10:00</span>
+                            </div>
+                            <div class="unitPro">
+                                원픽은, 흔한남매<br/>
+                                <span>제6~1화:어느날 받은 영상의 비밀은?</span>
+                            </div>
+                        </div>
+                        <div class="innerUnit">
+                            <div class="unitTime">
+                                <span>10:00</span>
+                            </div>
+                            <div class="unitPro">
+                                프린세스 바리<br/>
+                                <span>제21화: 잭과 콩나무 1부</span>
+                            </div>
+                        </div>
+                        <div class="innerUnit">
+                            <div class="unitTime">
+                                <span>11:00</span>
+                            </div>
+                            <div class="unitPro">
+                                토마스와 친구들<br/>
+                                <span>45화: 우리는 한 팀</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
-        </aside>
-        <div id="icon">
-            <ul>
-                <a href="https://www.youtube.com/channel/UCkfRXhh7ib_bOzUmDNFWghg/featured" target="_blank"><li><img src="./images/icon1.png"></li></a>
-                <a href="https://blog.naver.com/damuseum" target="_blank"><li><img src="./images/icon2.png"></li></a>
-                <a href="https://www.facebook.com/damuseum" target="_blank"><li><img src="./images/icon3.png"></li></a>
-                <a href="https://www.instagram.com/daeguartmuseum/" target="_blank"></a><li><img src="./images/icon4.png"></li></a>
-                <a href="https://pf.kakao.com/_xbuYuK" target="_blank"><li><img src="./images/icon5.png"></li></a>
-            </ul>
-        </div>
+        </section>
+        <section id="newContents">
+            <article class="mainTitle">
+                <div>투니버스가 준비한 5월 신작</div>
+            </article>
 
+            <div id="box">
+                <article class="items">
+                    <div class="itemsImg">
+                        <img src="./images/banner/1티니핑pc포스터.jpg" alt="">
+                    </div>
+                    <div class="typo_area">
+                        <div class="inner">
+                            <div class="title">알쏭달쏭 캐치! 티니핑</div>
+                            <div class="time">[토] 오전 08:00 방송</div>
+                        </div>
+                        <div class="genre">
+                            <span>애니메이션</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="items">
+                    <div class="itemsImg">
+                        <img src="./images/banner/2내꿈은포켓몬마스터pc포스터.jpg" alt="">
+                    </div>
+                    <div class="typo_area">
+                        <div class="inner">
+                            <div class="title">포켓몬스터W: 내 꿈은 포켓몬마스터</div>
+                            <div class="time">[수] 오후 07:00 방송</div>
+                        </div>
+                        <div class="genre">
+                            <span>애니메이션</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="items">
+                    <div class="itemsImg">
+                        <img src="./images/banner/3꾹티비4pc포스터.jpg" alt="">
+                    </div>
+                    <div class="typo_area">
+                        <div class="inner">
+                            <div class="title">꾹 TV 4</div>
+                            <div class="time">[수] 오후 06:00 방송</div>
+                        </div>
+                        <div class="genre">
+                            <span>어린이</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="items">
+                    <div class="itemsImg">
+                        <img src="./images/banner/4드림즈pc포스터.jpg" alt="">
+                    </div>
+                    <div class="typo_area">
+                        <div class="inner">
+                            <div class="title">드림즈</div>
+                            <div class="time">[수] 오후 04:00 방송</div>
+                        </div>
+                        <div class="genre">
+                            <span>애니메이션</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="tving">
+            <div class="banner_mo"></div>
+            <div class="banner_pc"></div>
+        </section>
+
+
+        <footer>
+            <div id="footerWrap">
+                <div class="wrapinner">
+                    <div class="innerItem">
+                        <ul class="link">
+                            <li>회사소개</li>
+                            <li>광고/제휴문의</li>
+                            <li>이용약관</li>
+                            <li>개인정보 처리방침</li>
+                            <li>청소년보호정책</li>
+                            <li>법적고지</li>
+                            <li>이메일무단수집거부</li>
+                            <li>큐톤표</li>
+                            <li>고객센터</li>
+                        </ul>
+                    </div>
+                    <div class="innerItem">
+                        <div class="select">
+                            <div><a href="">브랜드 바로가기</a></div>
+                            <div><a href="">계열사 바로가기</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapinner">
+                    <div class="footerMain">
+                        <div class="footerLogo">
+                            <img src="" alt="">
+                        </div>
+                        <div class="footerAddr">
+                            <ul>
+                                <li><span>시청자 상담실 (편성 문의 및 시청자 의견) : <strong><a href="#">tel:080-080-0780</a></strong></span></li>
+                                <li><span>(주)씨제이이엔엠&nbsp;대표이사 : 구창근, 윤상현</span></li>
+                                <li><strong><a href="#">사업자정보확인</a></strong></li>
+                            </ul>
+                            <ul>
+                                <li><span>본점 : (06761) 서울시 서초구 과천대로 870-13</span></li>
+                                <li><span>사업장 : (03926) 서울시 마포구 상암산로 66</span></li>
+                                <li><span>사업자 등록번호 : 106-81-51510</span></li>
+                                <li><span>개인정보 보호책임자 : 강봉관</span></li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <div class="copyright">
+                            <span><p>@ CJ ENM. All Rights Reserved.</p></span>
+                        </div>
+                        <div class="snsLink">
+                            <ul>
+                                <li><a href="https://www.instagram.com/tooniverse.official/" target="_blank">인스타그램</a></li>
+                                <li><a href="https://www.facebook.com/tooniverse.official" target="_blank">페이스북</a></li>
+                                <li><a href="https://www.youtube.com/c/enmtooniverse" target="_blank">유트브</a></li>
+                                <li><a href="https://story.kakao.com/ch/tooniverse" target="_blank">카카오스토리</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <footer>
-            <p>주소 : (우.42250) 대구광역시 수성구 미술관로 40</p>
-            <p>대표전화 : +82-53-803-7900 팩스번호 : +82-53-803-7859 © DAEGU ARTMUSEUM, KOREA</p>
-            <p>대표전화: <b>053-803-7900</b></p>
-    </footer>
 </body>
 </html>
